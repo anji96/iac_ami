@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Create AWS AMI -1 '
- 		sh "AWS_PROFILE=default /usr/bin/packer build packer/packer.json"
+ 		sh "/usr/bin/packer build -var 'aws_profile=default' packer/packer.json"
             }
         }
     }
