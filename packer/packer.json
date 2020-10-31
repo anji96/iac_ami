@@ -12,7 +12,7 @@
     "source_ami": "ami-04ab2c6566a35dfe1",
     "instance_type": "t2.micro",
     "ssh_username": "centos",
-    "ami_name": "packer-demo",
+    "ami_name": "packer-demo {{timestamp}}",
     "associate_public_ip_address": "true",
     "ami_virtualization_type": "hvm",
     "subnet_filter": {
@@ -26,11 +26,9 @@
    ],
 
   "provisioners": [
-  {
-    "type": "shell",
-    "inline": [
-        "uname -a"
-      ]
-  }
+    {
+        "type": "shell",
+        "script": "docker.sh"
+    }
   ]
 }
