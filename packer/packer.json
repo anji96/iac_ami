@@ -28,7 +28,7 @@
   "provisioners": [
     {
         "type": "shell",
-        "script": "docker.sh"
+        "script": "packer/docker.sh"
     }
   ]
 }
