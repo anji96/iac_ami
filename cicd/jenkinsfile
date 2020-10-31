@@ -1,15 +1,10 @@
 pipeline {
     agent any
-    environment {
-	 AWS_ACCESS_KEY_ID = credentials('jenkins_aws_access_key_id')
-	 AWS_SECRET_ACCESS_KEY = credentials('jenkins_aws_secret_access_key')
-	}
-
     stages {
         stage('Build') {
             steps {
                 echo 'Create AWS AMI -2 '
- 		sh "/usr/bin/packer build -var 'AWS_PROFILE=default' packer/packer.json"
+ 		sh "/usr/bin/packer build packer/packer.json"
             }
         }
     }
