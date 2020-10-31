@@ -1,0 +1,35 @@
+ {
+  "variables": {
+    "aws_access_key": "",
+    "aws_secret_key": ""
+  },
+  "builders": [{
+    "type": "amazon-ebs",
+    "access_key": "{{user `aws_access_key`}}",
+    "secret_key": "{{user `aws_secret_key`}}",
+    "region": "us-east-1",
+    "source_ami": "ami-04ab2c6566a35dfe1",
+    "instance_type": "t2.micro",
+    "ssh_username": "centos",
+    "ami_name": "packer-demo",
+    "associate_public_ip_address": "true",
+    "ami_virtualization_type": "hvm",
+    "subnet_filter": {
+            "filters": {
+              "state": "available"
+            },
+            "most_free": true,
+            "random": true
+        }
+     }
+   ],
+
+  "provisioners": [
+  {
+    "type": "shell",
+    "inline": [
+        "uname -a"
+      ]
+  }
+  ]
+}
