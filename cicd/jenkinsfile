@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Create AWS AMI -1 '
- 		sh "/usr/bin/packer build ../packer/packer.json"
+ 		sh "/usr/bin/packer build packer/packer.json"
             }
         }
     }
